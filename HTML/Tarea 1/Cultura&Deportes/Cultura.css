@@ -1,0 +1,15 @@
+img{
+    width: 30%;
+    height: 40%;
+}
+
+div.margen{
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+}
+
+img.izquierda {
+    float: left;
+    margin-right: 20px;
+}
