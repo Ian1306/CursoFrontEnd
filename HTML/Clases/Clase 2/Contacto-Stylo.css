@@ -1,0 +1,17 @@
+body{
+margin: 0;
+
+}
+
+main{
+background-image: url("image/Fondi.jpg");
+filter: grayscale(80%);
+background: position 50% 50%;
+height: 100vh;
+}
+
+p,label,h3{
+    color: cornsilk;
+
+}
+
