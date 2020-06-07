@@ -1,0 +1,39 @@
+
+/* Slector de tipo **  */
+*{
+    font-size: 16px;
+    
+}
+
+
+/* Slector de tipo clase*/
+.texto-color{
+color: blue;
+font-size: 32px;
+
+
+
+}
+/* Slector de tipo Id*/
+.texto-line{
+  
+    text-decoration: underline;
+    
+    
+    }
+
+#parrafo{
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 22px;
+    color: rgb(43, 177, 43);
+
+    }
+/* Slector de tipo element (,)element*/
+p,label{
+
+    opacity: 0.7;
+
+
+    }
+
