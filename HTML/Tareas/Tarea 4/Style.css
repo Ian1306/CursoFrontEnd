@@ -1,0 +1,76 @@
+
+body{
+background: rgb(37, 37, 37);
+
+}
+
+.fondo-Gris{
+    /*Esta unodad calcula eltamano en base a la pantalla del dispositivo. en este
+    caso usa toda la altura (Heigth)*/
+    height: 100Vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color:  rgb(35, 58, 83);
+}
+
+ul{
+    list-style-type:none;
+    }
+
+
+.contenedor-formulario{
+    position: relative;
+    width: 50%;
+    height: auto;
+    left: 25%;
+    background: black;
+    padding: 30px; 
+    top: 100px;
+
+}
+.contenido{
+   width: 100%;
+}
+
+.contenido > article{
+   display: inline-block;
+ }
+
+.info{
+    width: 35%;
+    padding: 10px;
+  
+
+
+}
+.Infogeneral{
+    width: 50%;
+    
+   
+}
+
+.lu-menu{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(114, 179, 120);
+}
+a , p{
+    text-decoration: none;
+    color: white;
+}
+.menu-li-{
+    
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+   
+}
+li a:hover:not(.active) {
+    background-color: rgb(5, 138, 131);
+  }
+
