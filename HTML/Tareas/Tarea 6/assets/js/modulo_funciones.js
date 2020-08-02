@@ -25,32 +25,56 @@ let tareasArray =[];
 }
 
 
+
 let listatareacontenido = document.querySelector('.lista-tarea-contenido');
+
+function insertHtml(){
+    $(".lista-tarea-contenido").html("<div class='sin-tareas d-flex justify-content-center align-items-end'> <p class='text-center text-muted'>No se encontraron tareas.</p> </div>")
+};
+
+
+
 let todas = function(){
     tareasArray = JSON.parse(localStorage.getItem('tareas'));
     if(tareasArray == null){
         tareasArray = [];
+        
     }else{
         listatareacontenido.innerHTML = '';
         for(let i of tareasArray){
-            listatareacontenido.innerHTML += 
+            if(i.estado == true ){
+                listatareacontenido.innerHTML += 
             `
             <div class="alert alert-dark d-flex justify-content-between" role="alert">
-               ${i.titulo} <h3>
-                <i style="color:#df405;" class="fa fa-check-circle-o"></i></h3> 
+               ${i.titulo} 
+                <i style="color:#49dcb1;"  class="fa fa-check-circle-o"></i>
             </div>
     
             `;
+            }else{
+                listatareacontenido.innerHTML += 
+                `
+                <div class="alert alert-dark d-flex justify-content-between" role="alert">
+                   ${i.titulo} 
+                    <i style="color:#df405a;" class="fa fa-check-circle-o"></i>
+                </div>
+        
+                `;
+            }
 
         }
     }
 
 }
 
+
+
 let completa = function(){
     tareasArray = JSON.parse(localStorage.getItem('tareas'));
-    if(tareasArray === null){
+    if(tareasArray == null){
+       
         tareasArray = [];
+
     }else{
         listatareacontenido.innerHTML = '';
         for(let i of tareasArray){
@@ -59,11 +83,13 @@ let completa = function(){
             `
             <div class="alert alert-dark d-flex justify-content-between" role="alert">
                 ${i.titulo}
-                <i class="far fa-check-circle"></i>
+                <i style="color:#49dcb1;" class="fa fa-check-circle-o"></i>
             </div>
     
             `;
 
+        }else{
+            insertHtml();
         }
             }
     }
@@ -72,7 +98,8 @@ let completa = function(){
 let incompleta = function(){
     tareasArray = JSON.parse(localStorage.getItem('tareas'));
     if(tareasArray === null){
-        tareasArray = [];
+       tareasArray = [];
+     
     }else{
         listatareacontenido.innerHTML = '';
         for(let i of tareasArray){
@@ -81,27 +108,32 @@ let incompleta = function(){
             `
             <div class="alert alert-dark d-flex justify-content-between" role="alert">
                 ${i.titulo}
-                <i class="far fa-check-circle"></i>
+                <i style="color: #df405a;"  class="fa fa-check-circle-o"></i>
             </div>
     
             `;
 
+        }else{
+            insertHtml();
         }
             }
     }
 }
-
 let cambiartarea = function(activar){
-    indice = tareasArray.findIndex(function(tareasArray){
+    indice = tareasArray.find(function(tareasArray){
         return tareasArray.titulo == activar;
     });
-    if(tareasArray[indice].estado==true){
-        tareasArray[indice].estado=false;
+    if(tareasArray[indice].estado == true){
+        tareasArray[indice].estado = false;
     }else{
-        tareasArray[indice].estado=true;
+        tareasArray[indice].estado =true;
     }
-}
+
+    localStorage.setItem('tareas', JSON.stringify(tareasArray));
+
+
+} 
 
 export{ guardar, todas, crear, 
-completa,incompleta,cambiartarea}
+completa,incompleta,cambiartarea,insertHtml}
 

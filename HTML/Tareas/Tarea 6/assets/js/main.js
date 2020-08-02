@@ -1,7 +1,6 @@
 
 import * as funciones from '/assets/js/modulo_funciones.js';
 
-
 $('#Guardartarea').click(function(e){
 
     e.preventDefault();
@@ -33,21 +32,43 @@ $('#Guardartarea').click(function(e){
 // Boton tareas mostrar todas
 $('#btn-todo').click(function(e){
     e.preventDefault();
-    funciones.todas();
+      funciones.todas();
+   
 });
 
 // Boton tareas mostrar completas
 $('#btn-Completada').click(function(e){
     e.preventDefault();
-    funciones.completa();
+
+     funciones.completa();
 });
     
 // Boton tareas mostrar completas
 $('#btn-Incompleta').click(function(e){
     e.preventDefault();
-    funciones.incompleta();
-})
+   
+      funciones.incompleta();
+    
+ 
 
-if(sec){
+});
 
-}
+
+  $('.lista-tarea-contenido').click( function(e){
+      if(e.target.classList.contains('fa-check-circle')){
+          if(e.target.style.color == 'rgb(223, 64, 90)'){
+              e.target.style.color = '#9c9999';
+              e.target.style.transition = "all 700ms ease";
+          }else{
+              e.target.style.color = '#df405a';
+              e.target.style.transition = "all 700ms ease";
+          };
+
+         let activarTarea = (e.target.parentElement.innerText); 
+          funciones.cambiarEstadoTarea(activarTarea);
+  
+      };
+  });
+
+
+
